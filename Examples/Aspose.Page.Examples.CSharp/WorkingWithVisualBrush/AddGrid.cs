@@ -11,7 +11,7 @@ namespace CSharp.WorkingWithVisualBrush
         {
             // ExStart:1
             // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir_WorkingWithVisualBrush();
+            string dataDir = @"D:\aspose\Aspose.Common\Aspose.Net.Git\XPS-Java-Examples\src\main\resources\";
 
             XpsDocument doc = new XpsDocument();
             // Geometry for magenta grid VisualBrush
@@ -36,14 +36,13 @@ namespace CSharp.WorkingWithVisualBrush
             XpsCanvas canvas = doc.AddCanvas();
             canvas.RenderTransform = doc.CreateMatrix(1f, 0f, 0f, 1f, 268f, 70f);
             // Add grid
-            canvas.AddPath(pathGeometry);
+            canvas.Add(gridPath);
             // Red transparent rectangle in the middle top
-            XpsPath path = canvas.AddPath(doc.CreatePathGeometry("M 30,20 l 258.24,0 0,56.64 -258.24,0 Z"));
-            path = canvas.AddPath(doc.CreatePathGeometry("M 10,10 L 228,10 228,100 10,100"));
+            XpsPath path = canvas.AddPath(doc.CreatePathGeometry("M 10,10 L 228,10 228,100 10,100"));
             path.Fill = doc.CreateSolidColorBrush(doc.CreateColor(1.0f, 0.0f, 0.0f));
             path.Opacity = 0.7f;
             // Save resultant XPS document
-            doc.Save(dataDir + "AddGrid_out.xps");
+            doc.Save(dataDir + "AddGrid_out_Net.xps");
             // ExEnd:1
         }
     }
